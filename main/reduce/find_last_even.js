@@ -1,7 +1,7 @@
 'use strict';
 
 function find_last_even(collection) {
-  //在这里写入代码
+  return collection.filter(e => e % 2 === 0).pop();
 }
 
 module.exports = find_last_even;

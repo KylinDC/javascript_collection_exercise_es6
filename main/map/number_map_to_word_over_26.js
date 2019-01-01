@@ -1,6 +1,14 @@
 'use strict';
-var number_map_to_word_over_26 = function(collection){
-  return ['a','m','aa','ad','y','aa'];
+var number_map_to_word_over_26 = function (collection) {
+  return collection.map(e => decToLetter(e));
 };
 
+function decToLetter(num) {
+  const DICT = 'abcdefghijklmnopqrstuvwxyz';
+  if (num <= 26) {
+    return DICT[num - 1];
+  } else {
+    return decToLetter(Math.round((num - 1) / 26)) + DICT[(num - 1) % 26];
+  }
+}
 module.exports = number_map_to_word_over_26;

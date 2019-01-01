@@ -1,8 +1,14 @@
 'use strict';
 
 function grouping_count(collection) {
-
-  //在这里写入代码
+  return collection.reduce((acc, cur) => {
+    if (cur in acc) {
+      acc[cur] += 1;
+    } else {
+      acc[cur] = 1;
+    }
+    return acc;
+  }, {});
 }
 
 module.exports = grouping_count;
